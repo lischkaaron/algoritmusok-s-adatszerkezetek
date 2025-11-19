@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feladatok Letöltése Sablon</title>
+    <title>Alga feladatok</title>
     <style>
         html, body {
-            /* Magasság eltávolítva a body-ról, hogy lehessen görgetni, ha 4 doboz van */
             margin: 0;
             padding: 0;
-            min-height: 100vh; /* Minimum magasság, hogy a tartalom középen legyen, ha kevés van */
+            min-height: 100vh;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #e9ecef;
-            /* VISSZAÁLLÍTVA: Függőleges elrendezés (egymás alatt) */
+            /* Fő tartalom függőlegesen rendezve: Cím -> Alcím -> Dobozok */
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* KÖZÖTTI TÉR NÖVELVE a jobban elszeparált dobozokért */
-            gap: 1.5rem; /* Ezt csökkentettem, hogy kevésbé különüljenek el */
             padding: 40px 0;
-            justify-content: flex-start; /* Középről felülre került az elrendezés, ha sok elem van */
+            justify-content: flex-start;
         }
-
-        /* TÖRÖLVE a .card-container CSS */
+        
+        /* ÚJ STÍLUS: A dobozok elrendezéséhez */
+        .card-container {
+            display: flex; /* Ezzel kerülnek egymás mellé a dobozok */
+            flex-wrap: wrap; /* Hogy mobil nézetben betörjenek a dobozok */
+            justify-content: center; /* Dobozok középre igazítása */
+            gap: 1.5rem; /* Közti távolság a dobozok között */
+            max-width: 1200px; /* Max szélesség az elrendezéshez */
+            width: 95%;
+        }
 
         .page-title {
             color: #004d99;
@@ -37,7 +42,7 @@
             padding-bottom: 15px;
             margin-bottom: 0;
             text-align: center;
-            width: 75%;
+            width: 90%; 
         }
 
         .subtitle {
@@ -45,20 +50,32 @@
             font-size: 1.2rem;
             font-weight: 400;
             margin-top: 15px;
-            margin-bottom: 25px; /* Kisebb margó, közelebb kerülnek a dobozok */
+            margin-bottom: 25px;
             text-align: center;
         }
 
         .window-card {
             background-color: white;
-            padding: 3rem;
+            padding: 2rem; /* Kicsit csökkentett padding */
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.15);
             text-align: center;
-            /* VISSZAÁLLÍTVA: Nagyobb szélesség az egyoszlopos elrendezéshez */
-            width: 90%;
-            max-width: 550px; 
+            /* FIX SZÉLESSÉG a négy egyenlő dobozért */
+            width: 250px; 
+            min-width: 200px;
             transition: transform 0.2s;
+        }
+        
+        /* MEDIA QUERY: Kis képernyőn még mindig egymás alatt legyenek */
+        @media (max-width: 1100px) {
+            .window-card {
+                width: 45%; /* Két doboz egy sorban kisebb képernyőn */
+            }
+        }
+        @media (max-width: 600px) {
+            .window-card {
+                width: 90%; /* Egy doboz egy sorban mobil nézetben */
+            }
         }
 
         .window-card:hover {
@@ -106,66 +123,86 @@
             background-color: #1e7e34;
         }
 
-        /* TÖRÖLVE a media query */
+        .btn-template {
+            background-color: #ffc107;
+            color: #343a40;
+        }
+        .btn-template:hover {
+            background-color: #e0a800;
+        }
     </style>
 </head>
 <body>
 
     <h1 class="page-title">Algoritmusok és adatszerkezetek a gyakorlatban</h1>
     <p class="subtitle">Készítette: Lischka Áron - SSPWFB</p>
+    
+    <div class="card-container">
 
-    <div class="window-card">
-        <h2>Dice Combinations</h2>
-        <p>dinamikus-programozás</p>
+        <div class="window-card">
+            <h2>Dice Combinations</h2>
+            <p>dinamikus programozással</p>
+            
+            <button class="btn" onclick="downloadDiceCombo()">DiceCombinations.py letöltése</button>
+            
+            <button class="btn btn-link" onclick="openLink(diceComboLink)">
+                Feladatleírás megnyitása
+            </button>
+        </div>
         
-        <button class="btn" onclick="downloadDiceCombo()">Megoldás letöltése</button>
+        <div class="window-card">
+            <h2>2. Feladat</h2>
+            <p>Minimális érme</p>
+            
+            <button class="btn" onclick="downloadMinimaleErme()">MinimaleErme.py letöltése</button>
+            
+            <button class="btn btn-link" onclick="openLink(minimaleErmeLink)">
+                Feladatleírás megnyitása
+            </button>
+        </div>
         
-        <button class="btn btn-link" onclick="openLink(diceComboLink)">
-            Feladatleírás megnyitása
-        </button>
-    </div>
-    
-    <div class="window-card">
-        <h2>2. Feladat</h2>
-        <p>Minimális érme</p>
-        
-        <button class="btn" onclick="downloadMinimaleErme()">MinimaleErme.py letöltése</button>
-        
-        <button class="btn btn-link" onclick="openLink(minimaleErmeLink)">
-            Feladatleírás megnyitása
-        </button>
-    </div>
-    
-    <div class="window-card">
-        <h2>3. Feladat</h2>
-        <p>Monoton módon növekvő tömb</p>
-        
-        <button class="btn" onclick="downloadMonotonNovekvo()">MonotonNovekvo.py letöltése</button>
-        
-        <button class="btn btn-link" onclick="openLink(monotonNovekvoLink)">
-            Feladatleírás megnyitása
-        </button>
-    </div>
+        <div class="window-card">
+            <h2>3. Feladat</h2>
+            <p>Monoton módon növekvő tömb</p>
+            
+            <button class="btn" onclick="downloadMonotonNovekvo()">MonotonNovekvo.py letöltése</button>
+            
+            <button class="btn btn-link" onclick="openLink(monotonNovekvoLink)">
+                Feladatleírás megnyitása
+            </button>
+        </div>
 
-    <div class="window-card template">
-        <h2>4. Feladat: [Saját cím]</h2>
-        <p style="color: #495057;">Töltsd ki a dobozt a következő feladattal! A letöltés egy üres Python fájlt hoz létre.</p>
+        <div class="window-card template">
+            <h2>4. Feladat: [Saját cím 1]</h2>
+            <p style="color: #495057;">Töltsd ki a dobozt a következő feladattal! A letöltés egy üres Python fájlt hoz létre.</p>
+            
+            <button class="btn btn-template" onclick="downloadTemplate4()">feladat4.py Mentése</button>
+            
+            <button class="btn btn-link" onclick="openLink(templateLink4)">
+                Saját Link Megnyitása
+            </button>
+        </div>
         
-        <button class="btn" onclick="downloadTemplate()">feladat4.py Mentése</button>
-        
-        <button class="btn btn-link" onclick="openLink(templateLink)">
-            Saját Link Megnyitása
-        </button>
-    </div>
+        <div class="window-card template">
+            <h2>5. Feladat: [Saját cím 2]</h2>
+            <p style="color: #495057;">Töltsd ki a dobozt a következő feladattal! A letöltés egy üres Python fájlt hoz létre.</p>
+            
+            <button class="btn btn-template" onclick="downloadTemplate5()">feladat5.py Mentése</button>
+            
+            <button class="btn btn-link" onclick="openLink(templateLink5)">
+                Saját Link Megnyitása
+            </button>
+        </div>
     
-<script>
+    </div> <script>
     // =======================================================================================
     // 1. LINK VÁLTOZÓK (EZT KELL MÓDOSÍTANOD!)
     // =======================================================================================
     const diceComboLink = "https://cses.fi/problemset/task/1079";
     const minimaleErmeLink = "https://cses.fi/problemset/task/1636"; // Példa link
     const monotonNovekvoLink = "https://cses.fi/problemset/task/1078"; // Példa link
-    const templateLink = "https://www.google.com/search?q=Helyettesítsd+ezt+a+linket";
+    const templateLink4 = "https://www.google.com/search?q=Helyettesítsd+ezt+a+linket+4"; // 4. feladathoz
+    const templateLink5 = "https://www.google.com/search?q=Helyettesítsd+ezt+a+linket+5"; // 5. feladathoz
 
     function openLink(url) {
         window.open(url, '_blank');
@@ -229,12 +266,26 @@ if __name__ == "__main__":
     solve()
 `;
 
-    const codeTemplate = `import sys
+    const codeTemplate4 = `import sys
 
-# [FELADAT CÍME] - Írd át!
+# [FELADAT CÍME 4] - Írd át!
 
 def solve():
-    # Ide írd a következő feladat megoldását!
+    # Ide írd a negyedik feladat megoldását!
+    # n = int(sys.stdin.read())
+    # ...
+    pass
+
+if __name__ == "__main__":
+    solve()
+`;
+
+    const codeTemplate5 = `import sys
+
+# [FELADAT CÍME 5] - Írd át!
+
+def solve():
+    # Ide írd az ötödik feladat megoldását!
     # n = int(sys.stdin.read())
     # ...
     pass
@@ -267,8 +318,13 @@ if __name__ == "__main__":
         downloadFile('MonotonNovekvo.py', codeMonotonNovekvo);
     }
 
-    function downloadTemplate() {
-        downloadFile('feladat4.py', codeTemplate);
+    // A template függvények átnevezve sorszám szerint
+    function downloadTemplate4() {
+        downloadFile('feladat4.py', codeTemplate4);
+    }
+
+    function downloadTemplate5() {
+        downloadFile('feladat5.py', codeTemplate5);
     }
 </script>
 
