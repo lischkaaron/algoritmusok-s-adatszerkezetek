@@ -151,46 +151,46 @@
         </div>
         
         <div class="window-card">
-            <h2>2. Feladat</h2>
-            <p>Minimális érme</p>
+            <h2>cim</h2>
+            <p>feladat</p>
             
-            <button class="btn" onclick="downloadMinimaleErme()">MinimaleErme.py letöltése</button>
+            <button class="btn" onclick="downloadMinimaleErme()">letoltes</button>
             
             <button class="btn btn-link" onclick="openLink(minimaleErmeLink)">
-                Feladatleírás megnyitása
+                link
             </button>
         </div>
         
         <div class="window-card">
-            <h2>3. Feladat</h2>
-            <p>Monoton módon növekvő tömb</p>
+            <h2>cim</h2>
+            <p>feladat</p>
             
-            <button class="btn" onclick="downloadMonotonNovekvo()">MonotonNovekvo.py letöltése</button>
+            <button class="btn" onclick="downloadMonotonNovekvo()">letoltes</button>
             
             <button class="btn btn-link" onclick="openLink(monotonNovekvoLink)">
-                Feladatleírás megnyitása
+                link
             </button>
         </div>
 
         <div class="window-card template">
-            <h2>4. Feladat: [Saját cím 1]</h2>
-            <p style="color: #495057;">Töltsd ki a dobozt a következő feladattal! A letöltés egy üres Python fájlt hoz létre.</p>
+            <h2>cim</h2>
+            <p>feladat</p>
             
-            <button class="btn btn-template" onclick="downloadTemplate4()">feladat4.py Mentése</button>
+            <button class="btn" onclick="downloadTemplate4()">letoltes</button>
             
             <button class="btn btn-link" onclick="openLink(templateLink4)">
-                Saját Link Megnyitása
+                link
             </button>
         </div>
         
         <div class="window-card template">
-            <h2>5. Feladat: [Saját cím 2]</h2>
-            <p style="color: #495057;">Töltsd ki a dobozt a következő feladattal! A letöltés egy üres Python fájlt hoz létre.</p>
+            <h2>cim</h2>
+            <p>feladat</p>
             
-            <button class="btn btn-template" onclick="downloadTemplate5()">feladat5.py Mentése</button>
+            <button class="btn" onclick="downloadTemplate5()">letoltes</button>
             
             <button class="btn btn-link" onclick="openLink(templateLink5)">
-                Saját Link Megnyitása
+                link
             </button>
         </div>
     
@@ -199,10 +199,10 @@
     // 1. LINK VÁLTOZÓK (EZT KELL MÓDOSÍTANOD!)
     // =======================================================================================
     const diceComboLink = "https://cses.fi/problemset/task/1079";
-    const minimaleErmeLink = "https://cses.fi/problemset/task/1636"; // Példa link
-    const monotonNovekvoLink = "https://cses.fi/problemset/task/1078"; // Példa link
-    const templateLink4 = "https://www.google.com/search?q=Helyettesítsd+ezt+a+linket+4"; // 4. feladathoz
-    const templateLink5 = "https://www.google.com/search?q=Helyettesítsd+ezt+a+linket+5"; // 5. feladathoz
+    const minimaleErmeLink = "https://vanenet.hu"; // Példa link
+    const monotonNovekvoLink = "https://vanenet.hu"; // Példa link
+    const templateLink4 = "https://vanenet.hu"; // 4. feladathoz
+    const templateLink5 = "https://vanenet.hu"; // 5. feladathoz
 
     function openLink(url) {
         window.open(url, '_blank');
@@ -311,11 +311,11 @@ if __name__ == "__main__":
     }
     
     function downloadMinimaleErme() {
-        downloadFile('MinimaleErme.py', codeMinimaleErme);
+        downloadFile('feladat2.py', codeMinimaleErme);
     }
 
     function downloadMonotonNovekvo() {
-        downloadFile('MonotonNovekvo.py', codeMonotonNovekvo);
+        downloadFile('feladat3.py', codeMonotonNovekvo);
     }
 
     // A template függvények átnevezve sorszám szerint
