@@ -14,7 +14,6 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #e9ecef;
-            /* Fő tartalom függőlegesen rendezve: Cím -> Alcím -> Dobozok */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -22,13 +21,12 @@
             justify-content: flex-start;
         }
         
-        /* ÚJ STÍLUS: A dobozok elrendezéséhez */
         .card-container {
-            display: flex; /* Ezzel kerülnek egymás mellé a dobozok */
-            flex-wrap: wrap; /* Hogy mobil nézetben betörjenek a dobozok */
-            justify-content: center; /* Dobozok középre igazítása */
-            gap: 1.5rem; /* Közti távolság a dobozok között */
-            max-width: 1200px; /* Max szélesség az elrendezéshez */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 1200px;
             width: 95%;
         }
 
@@ -95,7 +93,6 @@
         }
 
         .btn {
-            /* FIGYELEM: box-sizing beállítva a konzisztenciához */
             box-sizing: border-box; 
             display: block;
             width: 100%;
@@ -117,7 +114,6 @@
             background-color: #0056b3;
         }
         
-        /* A Link gombok stílusának frissítése <a>-ra */
         .btn-link {
             background-color: #28a745;
             margin-bottom: 0;
@@ -204,11 +200,6 @@
     </div> 
 
     <script>
-        // =======================================================================================
-        // MEGMART FUNKCIÓK A LINK MEGNYITÁSÁHOZ (A kód végén)
-        // =======================================================================================
-        
-        // CSERÉLD KI EZEKET A VÁLTOZÓKAT A HELYES LINKJEKRE!
         const diceCombinationsLink = 'https://cses.fi/problemset/task/1633';
         const buyingApplesLink = 'https://www.spoj.com/problems/ABA12C/';
         const monotonNovekvoLink = 'URL a harmadik feladathoz';
@@ -217,7 +208,7 @@
 
 
         function openLink(url) {
-            if (url && url !== 'URL a Dice Combinations feladathoz') { // Ellenőrzés a placeholder link ellen
+            if (url && url !== 'URL a Dice Combinations feladathoz') {
                 window.open(url, '_blank');
             } else {
                 alert('A feladat linkje még nincs beállítva!');
@@ -226,3 +217,4 @@
     </script>
 </body>
 </html>
+
