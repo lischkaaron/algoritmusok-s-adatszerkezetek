@@ -56,25 +56,23 @@
 
         .window-card {
             background-color: white;
-            padding: 2rem; /* Kicsit csökkentett padding */
+            padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.15);
             text-align: center;
-            /* FIX SZÉLESSÉG a négy egyenlő dobozért */
             width: 250px; 
             min-width: 200px;
             transition: transform 0.2s;
         }
         
-        /* MEDIA QUERY: Kis képernyőn még mindig egymás alatt legyenek */
         @media (max-width: 1100px) {
             .window-card {
-                width: 45%; /* Két doboz egy sorban kisebb képernyőn */
+                width: 45%; 
             }
         }
         @media (max-width: 600px) {
             .window-card {
-                width: 90%; /* Egy doboz egy sorban mobil nézetben */
+                width: 90%; 
             }
         }
 
@@ -96,9 +94,9 @@
             line-height: 1.5;
         }
 
-        /* ... Meglévő CSS a head-ben ... */
-
         .btn {
+            /* FIGYELEM: box-sizing beállítva a konzisztenciához */
+            box-sizing: border-box; 
             display: block;
             width: 100%;
             padding: 14px;
@@ -111,16 +109,15 @@
             border-radius: 6px;
             cursor: pointer;
             transition: background-color 0.2s;
-            text-decoration: none;
-            text-align: center;
+            text-decoration: none; 
+            text-align: center;    
         }
-
-        /* ... A többi stílus ... */
 
         .btn:hover {
             background-color: #0056b3;
         }
-
+        
+        /* A Link gombok stílusának frissítése <a>-ra */
         .btn-link {
             background-color: #28a745;
             margin-bottom: 0;
@@ -153,228 +150,79 @@
                 DiceCombinations.py letöltése
             </a>
             
-            <button class="btn btn-link" onclick="openLink(diceComboLink)">
+            <a href="#" class="btn btn-link" onclick="openLink(diceCombinationsLink)">
                 Feladatleírás megnyitása
-            </button>
+            </a>
         </div>
         
         <div class="window-card">
             <h2>ABA12C - Buying Apples!</h2>
             <p>dinamikus programozással</p>
             
-            <button class="btn" onclick="downloadBuyingApples()">BuyingApples.py letöltése</button>
+            <a href="BuyingApples.py" download="BuyingApples.py" class="btn">
+                BuyingApples.py letöltése
+            </a>
             
-            <button class="btn btn-link" onclick="openLink(minimaleErmeLink)">
+            <a href="#" class="btn btn-link" onclick="openLink(buyingApplesLink)">
                 Feladatleírás megnyitása
-            </button>
+            </a>
         </div>
         
         <div class="window-card">
             <h2>cim</h2>
             <p>feladat</p>
             
-            <button class="btn" onclick="downloadMonotonNovekvo()">letoltes</button>
+            <a href="cim3.py" download="cim3.py" class="btn">letoltes</a>
             
-            <button class="btn btn-link" onclick="openLink(monotonNovekvoLink)">
+            <a href="#" class="btn btn-link" onclick="openLink(monotonNovekvoLink)">
                 link
-            </button>
+            </a>
         </div>
 
         <div class="window-card template">
             <h2>cim</h2>
             <p>feladat</p>
             
-            <button class="btn" onclick="downloadTemplate4()">letoltes</button>
+            <a href="cim4.py" download="cim4.py" class="btn">letoltes</a>
             
-            <button class="btn btn-link" onclick="openLink(templateLink4)">
+            <a href="#" class="btn btn-link" onclick="openLink(templateLink4)">
                 link
-            </button>
+            </a>
         </div>
         
         <div class="window-card template">
             <h2>cim</h2>
             <p>feladat</p>
             
-            <button class="btn" onclick="downloadTemplate5()">letoltes</button>
+            <a href="cim5.py" download="cim5.py" class="btn">letoltes</a>
             
-            <button class="btn btn-link" onclick="openLink(templateLink5)">
+            <a href="#" class="btn btn-link" onclick="openLink(templateLink5)">
                 link
-            </button>
+            </a>
         </div>
     
-    </div> <script>
-    // =======================================================================================
-    // 1. LINK VÁLTOZÓK (EZT KELL MÓDOSÍTANOD!)
-    // =======================================================================================
-    const diceComboLink = "https://cses.fi/problemset/task/1633";
-    const minimaleErmeLink = "https://www.spoj.com/problems/ABA12C"; // Példa link
-    const monotonNovekvoLink = "https://vanenet.hu"; // Példa link
-    const templateLink4 = "https://vanenet.hu"; // 4. feladathoz
-    const templateLink5 = "https://vanenet.hu"; // 5. feladathoz
+    </div> 
 
-    function openLink(url) {
-        window.open(url, '_blank');
-    }
-    // =======================================================================================
-
-
-    // 2. KÓDOK A LETÖLTÉSHEZ
-    // =======================================================================================
-    const codeDiceCombinations = `import sys
-
-# Dice Combinations megoldás (Dupla ciklusos megközelítés)
-
-def diceCombinations():
-    input = sys.stdin.read
-    data = input().split()
-    
-    if not data:
-        return
+    <script>
+        // =======================================================================================
+        // MEGMART FUNKCIÓK A LINK MEGNYITÁSÁHOZ (A kód végén)
+        // =======================================================================================
         
-    n = int(data[0])
-    mod = 10**9 + 7
-    
-    dp = [0] * (n + 1)
-    dp[0] = 1
-    
-    for i in range(1, n + 1):
-        for j in range(1, 7):
-            if i - j >= 0:
-                dp[i] = (dp[i] + dp[i - j]) % mod
-                
-    print(dp[n])
+        // CSERÉLD KI EZEKET A VÁLTOZÓKAT A HELYES LINKJEKRE!
+        const diceCombinationsLink = 'https://cses.fi/problemset/task/1633';
+        const buyingApplesLink = 'https://www.spoj.com/problems/ABA12C/';
+        const monotonNovekvoLink = 'URL a harmadik feladathoz';
+        const templateLink4 = 'URL a negyedik feladathoz';
+        const templateLink5 = 'URL az ötödik feladathoz';
 
-if __name__ == "__main__":
-    solve()
-`;
 
-    const codeBuyingApples = `import sys
-
-INF = 10**9 
-
-def buyingApples():
-    try:
-        input = sys.stdin.read
-        data = input().split()
-    except:
-        return
-
-    if not data:
-        return
-
-    teszt_esetek_szama = int(data[0])
-    eredmenyek = []
-    
-    adat_index = 1 
-
-    for _ in range(teszt_esetek_szama):
-        max_csomag = int(data[adat_index])
-        cel_tomeg = int(data[adat_index+1])
-        adat_index += 2
-        
-        csomag_arak = [0] + [int(data[adat_index + i]) for i in range(cel_tomeg)]
-        adat_index += cel_tomeg
-        
-        min_koltseg_dp = [[INF] * (max_csomag + 1) for _ in range(cel_tomeg + 1)]
-        
-        min_koltseg_dp[0][0] = 0
-        
-        for tomeg_kg in range(1, cel_tomeg + 1):
-            for csomag_db in range(1, max_csomag + 1):
-                for utolso_csomag_tomeg in range(1, min(tomeg_kg, cel_tomeg) + 1):
-                    
-                    if csomag_arak[utolso_csomag_tomeg] != -1 and min_koltseg_dp[tomeg_kg - utolso_csomag_tomeg][csomag_db - 1] != INF:
-                        
-                        uj_koltseg = min_koltseg_dp[tomeg_kg - utolso_csomag_tomeg][csomag_db - 1] + csomag_arak[utolso_csomag_tomeg]
-                        
-                        if uj_koltseg < min_koltseg_dp[tomeg_kg][csomag_db]:
-                            min_koltseg_dp[tomeg_kg][csomag_db] = uj_koltseg
-        
-        vegso_minimum_koltseg = INF
-        
-        for csomag_db in range(1, max_csomag + 1):
-            if min_koltseg_dp[cel_tomeg][csomag_db] < vegso_minimum_koltseg:
-                vegso_minimum_koltseg = min_koltseg_dp[cel_tomeg][csomag_db]
-
-        if vegso_minimum_koltseg == INF:
-            eredmenyek.append("-1")
-        else:
-            eredmenyek.append(str(vegso_minimum_koltseg))
-
-    sys.stdout.write('\n'.join(eredmenyek) + '\n')
-
-buyingApples()
-`;
-    
-    const codeMonotonNovekvo = `
-`;
-
-    const codeTemplate4 = `import sys
-
-# [FELADAT CÍME 4] - Írd át!
-
-def solve():
-    # Ide írd a negyedik feladat megoldását!
-    # n = int(sys.stdin.read())
-    # ...
-    pass
-
-if __name__ == "__main__":
-    solve()
-`;
-
-    const codeTemplate5 = `import sys
-
-# [FELADAT CÍME 5] - Írd át!
-
-def solve():
-    # Ide írd az ötödik feladat megoldását!
-    # n = int(sys.stdin.read())
-    # ...
-    pass
-
-if __name__ == "__main__":
-    solve()
-`;
-
-    // 3. LETÖLTŐ FÜGGVÉNYEK
-    // =======================================================================================
-    function downloadFile(filename, content) {
-        const element = document.createElement('a');
-        const file = new Blob([content], {type: 'text/x-python'});
-        element.href = URL.createObjectURL(file);
-        element.download = filename;
-        document.body.appendChild(element);
-        element.click();
-        document.body.removeChild(element);
-    }
-
-    function downloadDiceCombinations() {
-        downloadFile('DiceCombinations.py', codeDiceCombinations);
-    }
-    
-    function downloadBuyingApples() {
-        downloadFile('BuyingApples.py', codeBuyingApples);
-    }
-
-    function downloadMonotonNovekvo() {
-        downloadFile('feladat3.py', codeMonotonNovekvo);
-    }
-
-    // A template függvények átnevezve sorszám szerint
-    function downloadTemplate4() {
-        downloadFile('feladat4.py', codeTemplate4);
-    }
-
-    function downloadTemplate5() {
-        downloadFile('feladat5.py', codeTemplate5);
-    }
-</script>
-
+        function openLink(url) {
+            if (url && url !== 'URL a Dice Combinations feladathoz') { // Ellenőrzés a placeholder link ellen
+                window.open(url, '_blank');
+            } else {
+                alert('A feladat linkje még nincs beállítva!');
+            }
+        }
+    </script>
 </body>
-
 </html>
-
-
-
-
