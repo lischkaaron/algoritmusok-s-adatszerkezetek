@@ -9,7 +9,7 @@ def buildingTeams():
     """
 
     # --- 1. ADATBEOLVASÁS ---
-    # Egyszerre olvassuk be az összes adatot, mert ez Pythonban sokkal gyorsabb, mint soronként.
+    # Beolvassuk a teljes bemenetet egyetlen hosszú stringként, majd feldaraboljuk szóközök/újsorok mentén.
     adatok = sys.stdin.read().split()
 
     if not adatok:
@@ -85,5 +85,6 @@ def buildingTeams():
     # A '*' operátor kicsomagolja a listát, így szóközzel elválasztva írja ki az elemeket.
     # A [1:] miatt a 0. indexű (használaton kívüli) elemet kihagyjuk.
     print(*(csapat[1:]))
+
 
 buildingTeams()
