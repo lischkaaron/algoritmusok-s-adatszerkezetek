@@ -9,7 +9,6 @@ def buyingApples():
 
     # --- 1. ADATBEOLVASÁS ---
     # Beolvassuk a teljes bemenetet egyetlen hosszú stringként, majd feldaraboljuk szóközök/újsorok mentén.
-    # Ez versenykörnyezetben sokkal gyorsabb, mintha soronként olvasnánk.
     adatok = sys.stdin.read().split()
 
     if not adatok:
@@ -107,5 +106,6 @@ def buyingApples():
 
     # Kiírjuk az összes eredményt új sorokkal elválasztva.
     print('\n'.join(eredmenyek) + '\n')
+
 
 buyingApples()
