@@ -1,4 +1,4 @@
-import sys # A 'sys' modul importálása, amely hozzáférést biztosít a rendszer-specifikus paraméterekhez és funkciókhoz.
+import sys
 
 
 def diceCombinations(): # Definiálja a fő függvényt, amely a dobókocka kombinációk számítását végzi.
@@ -41,5 +41,6 @@ def diceCombinations(): # Definiálja a fő függvényt, amely a dobókocka komb
 
     # A DP tábla utolsó elemét (a célösszeghez tartozó kombinációk számát) kiírja a standard kimenetre.
     print(db_lehetoseg[celosszeg]) # Kiírja a végeredményt.
+
 
 diceCombinations() # Meghívja a fő függvényt a futtatáshoz.
