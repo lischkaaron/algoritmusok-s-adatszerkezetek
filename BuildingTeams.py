@@ -1,4 +1,4 @@
-import sys # Importáljuk a sys modult a standard bemenet kezeléséhez.
+import sys
 
 
 def buildingTeams(): # Definiáljuk a fő függvényt, ami elvégzi a csapatbeosztást.
@@ -70,5 +70,6 @@ def buildingTeams(): # Definiáljuk a fő függvényt, ami elvégzi a csapatbeos
     # Ha a bejárás lezajlott ellentmondás nélkül, a gráf páros, és találtunk megoldást.
     # Kiírjuk a csapatbeosztást az 1-es indextől (kihagyjuk a 0-át), szóközzel elválasztva.
     print(*(csapat[1:])) # Kiírjuk a végső csapatbeosztást.
+
 
 buildingTeams() # Meghívja a fő függvényt a futtatáshoz.
