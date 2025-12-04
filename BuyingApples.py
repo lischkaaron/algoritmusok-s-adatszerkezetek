@@ -12,7 +12,7 @@ def buyingApples():
     adatok = sys.stdin.read().split()
 
     if not adatok:
-        return  # Ha üres a bemenet, nincs mit tenni.
+        return
 
     # Az első szám a tesztesetek (különböző feladatok) száma.
     teszt_esetek_szama = int(adatok[0])
@@ -109,3 +109,4 @@ def buyingApples():
 
 
 buyingApples()
+
